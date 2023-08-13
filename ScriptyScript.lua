@@ -21,8 +21,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/AngelFrFr/Angel/main/
 
 
 else 
-
- print(not supported)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/AngelFrFr/Angel/main/warning.lua"))()
 
 end
 
