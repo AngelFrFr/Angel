@@ -21,6 +21,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/AngelFrFr/Angel/main/
 
 
 else 
+ 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/AngelFrFr/Angel/main/warning.lua"))()
 
 end
