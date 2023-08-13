@@ -2,7 +2,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/BigJoeyJoeyFunnies/e/
 
 if game.PlaceId == 8296410597 then -- Sword Fight Arena
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/BigJoeyJoeyFunnies/roux/main/swordfighintg.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/AngelFrFr/Angel/main/games/SwordArena.lua"))()
  
 elseif game.PlaceId == 8810636550 then -- Kill others and flex your swords
 
