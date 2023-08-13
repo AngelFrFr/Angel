@@ -5,7 +5,7 @@ local function createWarningNotification(message)
     warningScreenGui.Parent = game.Players.LocalPlayer.PlayerGui
 
     local notificationLabel = Instance.new("TextLabel")
-    notificationLabel.Size = UDim2.new(0, 300, 0, 40)
+    notificationLabel.Size = UDim2.new(0, 500, 0, 40)
     notificationLabel.Position = UDim2.new(1, -220, 1, -60)
     notificationLabel.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
     notificationLabel.BorderColor3 = Color3.fromRGB(255, 0, 0)
