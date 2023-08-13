@@ -19,6 +19,11 @@ elseif game.PlaceId == 6130206252 then -- Mobile Sword Fights
 loadstring(game:HttpGet("https://raw.githubusercontent.com/AngelFrFr/Angel/main/games/MobSword.lua"))()
 
 
+
+else 
+
+ print(not supported)
+
 end
 
 -- print(game.PlaceId)
