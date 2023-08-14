@@ -47,6 +47,14 @@ local Tab = Window:MakeTab({
 
 
 Tab:AddButton({
+	Name = "Anticheat Disabler (disables any module that has TP in it)",
+	Callback = function()
+	
+loadstring(game:HttpGet("https://raw.githubusercontent.com/cdezxswzq/sword-fight-and-steal-time/main/AC%20Bypasser"))()
+  	end    
+})
+
+Tab:AddButton({
 	Name = "Stick On Players",
 	Callback = function()
 	
@@ -212,7 +220,22 @@ Tab:AddToggle({
 
 
 Tab:AddSlider({
-	Name = "Jump Power (no anticheat xd)",
+	Name = "Speed",
+	Min = 0,
+	Max = 100,
+	Default = 16,
+	ValueName = "Speed",
+	Callback = function(Value)
+		local player = game.Players.LocalPlayer
+		if player.Character and player.Character:FindFirstChild("Humanoid") then
+			player.Character.Humanoid.WalkSpeed = Value
+		end
+	end    
+})
+
+
+Tab:AddSlider({
+	Name = "Jump Power",
 	Min = 0,
 	Max = 100,
 	Default = 50,
@@ -286,6 +309,3 @@ createGroundCover()
 
       end    
 })
-
-
-
