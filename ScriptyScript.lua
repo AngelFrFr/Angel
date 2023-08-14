@@ -9,7 +9,7 @@ elseif game.PlaceId == 8810636550 then -- Kill others and flex your swords
 loadstring(game:HttpGet("https://raw.githubusercontent.com/BigJoeyJoeyFunnies/roux/main/swordfighintg.lua"))()
 
  
-elseif game.PlaceId == 8731279652 then -- Kill others and flex your swords
+elseif game.PlaceId == 8731279652 then -- Steal time (ac bypass)
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/AngelFrFr/Angel/main/games/StealTime1.lua"))()
  
