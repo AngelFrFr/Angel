@@ -222,7 +222,7 @@ Tab:AddToggle({
 Tab:AddSlider({
 	Name = "Speed",
 	Min = 0,
-	Max = 100,
+	Max = 250,
 	Default = 16,
 	ValueName = "Speed",
 	Callback = function(Value)
