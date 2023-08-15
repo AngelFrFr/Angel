@@ -322,8 +322,6 @@ local Tab = Window:MakeTab({
 
 
 
-
-
 Tab:AddToggle({
     Name = "Sky",
     Default = false,
@@ -345,4 +343,7 @@ Tab:AddToggle({
         end
     end
 })
+
+
+
 
