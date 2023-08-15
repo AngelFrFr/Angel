@@ -111,7 +111,6 @@ Tab:AddButton({
 })
 
 
-
 Tab:AddButton({
     Name = "GlitchPlayerTP (tp to closest)",
     Callback = function()
@@ -272,18 +271,13 @@ local Tab = Window:MakeTab({
 })
 
 
-
-Tab:AddButton({
-    Name = "Antivoid",
-    Save = true,
-    Callback = function()
-local player = game.Players.LocalPlayer
+local isAntivoidEnabled = false
 local yOffset = -10
 local gridSize = 5
 local partSize = 10
 
 local function createGroundCover()
-    local character = player.Character
+    local character = game.Players.LocalPlayer.Character
     if not character then
         return
     end
@@ -296,6 +290,7 @@ local function createGroundCover()
     local position = rootPart.Position
 
     local groundCover = Instance.new("Part")
+    groundCover.Name = "GroundCover"
     groundCover.Size = Vector3.new((gridSize * 2 + 1000000000) * partSize, 1, (gridSize * 2 + 1000000000) * partSize)
     groundCover.Anchored = true
     groundCover.CanCollide = true
@@ -305,45 +300,56 @@ local function createGroundCover()
     groundCover.Parent = workspace
 end
 
-createGroundCover()
-
-      end    
-})
-
-
-
-
-local Tab = Window:MakeTab({
-	Name = "VISUAL",
-	Icon = "rbxassetid://66590365",
-	PremiumOnly = false
-})
-
-
-
+local function removeGroundCover()
+    local existingGroundCover = workspace:FindFirstChild("GroundCover")
+    if existingGroundCover then
+        existingGroundCover:Destroy()
+    end
+end
 
 Tab:AddToggle({
-    Name = "Sky",
+    Name = "Antivoid",
     Default = false,
     Callback = function(Value)
-        if Value then
-            game.Lighting.Sky.SkyboxBk = "http://www.roblox.com/asset/?id=14390854426"
-            game.Lighting.Sky.SkyboxDn = "http://www.roblox.com/asset/?id=14390896988"
-            game.Lighting.Sky.SkyboxFt = "http://www.roblox.com/asset/?id=14390861661"
-            game.Lighting.Sky.SkyboxLf = "http://www.roblox.com/asset/?id=14390864920"
-            game.Lighting.Sky.SkyboxRt = "http://www.roblox.com/asset/?id=14390857794"
-            game.Lighting.Sky.SkyboxUp = "http://www.roblox.com/asset/?id=14390867940"
+        isAntivoidEnabled = Value
+        if isAntivoidEnabled then
+            createGroundCover()
         else
-            game.Lighting.Sky.SkyboxBk = "http://www.roblox.com/asset/?id=6444884337"
-            game.Lighting.Sky.SkyboxDn = "http://www.roblox.com/asset/?id=6444884785"
-            game.Lighting.Sky.SkyboxFt = "http://www.roblox.com/asset/?id=6444884337"
-            game.Lighting.Sky.SkyboxLf = "http://www.roblox.com/asset/?id=6444884337"
-            game.Lighting.Sky.SkyboxRt = "http://www.roblox.com/asset/?id=6444884337"
-            game.Lighting.Sky.SkyboxUp = "http://www.roblox.com/asset/?id=6444884337"
+            removeGroundCover()
         end
     end
 })
 
 
+local ToggleEnabled = false
+local Messages = {
+    "StarFunnies YT",
+    "Sub to StarFunnies",
+    "/pfveBg3UM9!",
+    "/pfveBg3UM9!"
+}  -- Change this to the messages you want to send
+local CurrentMessageIndex = 1
+local DelayBetweenMessages = 2  
+
+local function SendMessage()
+    while ToggleEnabled do
+        local message = Messages[CurrentMessageIndex]
+        game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(message, "All")
+        wait(DelayBetweenMessages)
+        
+        CurrentMessageIndex = CurrentMessageIndex % #Messages + 1  
+    end
+end
+
+Tab:AddToggle({
+    Name = "Chat Spammer",
+    Default = false,
+    Callback = function(Value)
+        ToggleEnabled = Value
+        if ToggleEnabled then
+            SendMessage()  
+        end
+    end
+})
 
 
