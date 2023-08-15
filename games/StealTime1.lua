@@ -309,3 +309,40 @@ createGroundCover()
 
       end    
 })
+
+
+
+
+local Tab = Window:MakeTab({
+	Name = "VISUAL",
+	Icon = "rbxassetid://66590365",
+	PremiumOnly = false
+})
+
+
+
+
+
+
+Tab:AddToggle({
+    Name = "Sky",
+    Default = false,
+    Callback = function(Value)
+        if Value then
+            game.Lighting.Sky.SkyboxBk = "http://www.roblox.com/asset/?id=14390854426"
+            game.Lighting.Sky.SkyboxDn = "http://www.roblox.com/asset/?id=14390896988"
+            game.Lighting.Sky.SkyboxFt = "http://www.roblox.com/asset/?id=14390861661"
+            game.Lighting.Sky.SkyboxLf = "http://www.roblox.com/asset/?id=14390864920"
+            game.Lighting.Sky.SkyboxRt = "http://www.roblox.com/asset/?id=14390857794"
+            game.Lighting.Sky.SkyboxUp = "http://www.roblox.com/asset/?id=14390867940"
+        else
+            game.Lighting.Sky.SkyboxBk = "http://www.roblox.com/asset/?id=6444884337"
+            game.Lighting.Sky.SkyboxDn = "http://www.roblox.com/asset/?id=6444884785"
+            game.Lighting.Sky.SkyboxFt = "http://www.roblox.com/asset/?id=6444884337"
+            game.Lighting.Sky.SkyboxLf = "http://www.roblox.com/asset/?id=6444884337"
+            game.Lighting.Sky.SkyboxRt = "http://www.roblox.com/asset/?id=6444884337"
+            game.Lighting.Sky.SkyboxUp = "http://www.roblox.com/asset/?id=6444884337"
+        end
+    end
+})
+
